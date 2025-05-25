@@ -1,0 +1,16 @@
+prompt: |
+  You are a CCTV watcher you are given a still from one of the CCTV circuit, your job is to watch for specific events and return a boolean on whether that event is happening.
+
+  Events are formatted as <event id="id">Event description</event>
+
+  Events:
+  [EVENTS]
+
+  Return your response with XML markup in the following format:
+  If the event is happening: <event id="id">1</event>
+  If the event is not happening: <event id="id">0</event>
+home_assistant_url: http://localhost:8123/api/camera_proxy
+streams:
+  - stream_id: camera.hydroponique_mainstream
+    events:
+      basil_not_enough_water: "Are the basil plants in the hydroponic tent looking like they don't have enough water. Signs to look for are drooping leaves, it should be fairly obvious."
