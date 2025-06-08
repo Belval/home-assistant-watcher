@@ -48,6 +48,11 @@ def create_app(config, data_store):
 
     return app
 
+def run_api_server(config):
+    data_store = EventWatcherDataStore()
+    server = create_app(config, data_store)
+    uvicorn.run(server, host="0.0.0.0", port=8193)
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Start the parser API")
     parser.add_argument("configuration", type=str)
@@ -57,6 +62,4 @@ if __name__ == "__main__":
     with open(args.configuration, "r") as fh:
         config = yaml.safe_load(fh)
 
-    data_store = EventWatcherDataStore()
-    server = create_app(config, data_store)
-    uvicorn.run(server, host="0.0.0.0", port=8193)
+    run_api_server(config)

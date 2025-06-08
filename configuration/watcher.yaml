@@ -10,6 +10,13 @@ prompt: |
   If the event is happening: <event id="id">1</event>
   If the event is not happening: <event id="id">0</event>
 home_assistant_url: http://localhost:8123/api/camera_proxy
+interval: 60
+mqtt:
+  host: localhost
+  port: 1883
+  client_id: home_assistant_watcher
+  username: 
+  password: 
 streams:
   - stream_id: camera.hydroponique_mainstream
     events:

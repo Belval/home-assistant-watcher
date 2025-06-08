@@ -30,7 +30,7 @@ class Watcher:
             }
 
             response = requests.get(url, headers=headers)
-            print(response)
+            print(response.content)
             if response.status_code == 200:
                 # The request was successful
                 image_data = response.content
